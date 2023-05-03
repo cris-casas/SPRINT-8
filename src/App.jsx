@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import axios from 'axios';
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
 import './App.css'
-import logo from './assets/logo.png';
+import Header from './components/Header';
+import Home from './pages/Home';
+import Starships from './pages/Starships';
+
 
 function App() {
   const [starships, setStarships] = useState([]);
@@ -17,41 +19,27 @@ function App() {
   }, []);
 
   return (
-    <>
-      <header>
-        
-        <div className="header-main">
-          <div className="logo">
-            <img src={logo} alt="Logo de la página"></img>
-          </div>
-          <nav className="nav-user">
-            <a href="#">Login</a>
-            <a href="#">Signup</a>
-          </nav>
-        </div>
-
-        <div className="nav-main-container">
-          <nav className="nav-main">
-            <a href="#">Home</a>
-            <a href="#">Servicios</a>
-          </nav>
-        </div>
-
-      </header>
-      <div>
-        {starships.map(starship => (
-          <div key={starship.name}>
-            <p>{starship.name}</p>
-            <p>{starship.model}</p>
-            <hr />
-          </div>
-        ))}
-      </div>
-    </>
+    <BrowserRouter>
+      <Header/>
+        <Routes>   
+          <Route index element={<Home/>} />
+          <Route path="/starships" element={<Starships/>} />
+        </Routes>
+    </BrowserRouter>
   )
 }
 
 /*
+
+
+
+      <BrowserRouter>
+        <Routes>   
+          <Route index element={<Home/>} />
+          <Route path="./pages/Starships" element={<Starships/>} />
+        </Routes>
+      </BrowserRouter>
+
 function App() {
   const [name, setName] = useState(null);
 
