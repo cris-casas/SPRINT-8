@@ -3,27 +3,34 @@ body {
   color: white;
 }
 
-nav {
+header {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: end;
+  flex-direction: column;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: black;
 }
 
 .logo {
-  width: 50px;
-  position: absolute;
-  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.nav-links {
+.logo img {
+  width: 200px;
+}
+
+.nav-user {
   display: flex;
 }
 
-.nav-links button {
-  margin-left: 10px;
+.nav-main-container {
+  display: flex;
+  justify-content: center;
 }
 
 /*

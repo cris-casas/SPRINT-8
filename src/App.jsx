@@ -18,15 +18,26 @@ function App() {
 
   return (
     <>
-      <nav>
-        <div className="logo">
-          <img width="100px" src={logo} alt="Logo" />
+      <header>
+        
+        <div className="header-main">
+          <div className="logo">
+            <img src={logo} alt="Logo de la página"></img>
+          </div>
+          <nav className="nav-user">
+            <a href="#">Login</a>
+            <a href="#">Signup</a>
+          </nav>
         </div>
-        <div className="nav-links">
-          <button>Login</button>
-          <button>Signup</button>
+
+        <div className="nav-main-container">
+          <nav className="nav-main">
+            <a href="#">Home</a>
+            <a href="#">Servicios</a>
+          </nav>
         </div>
-        </nav>
+
+      </header>
       <div>
         {starships.map(starship => (
           <div key={starship.name}>
