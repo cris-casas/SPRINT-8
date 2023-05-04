@@ -1,17 +1,10 @@
-import React from 'react'
+import React from 'react';
+import StarshipsList from '../components/StarshipsList';
 
 const Starships = () => {
   return (
-    <div>
-    {starships.map(starship => (
-      <div key={starship.name}>
-        <p>{starship.name}</p>
-        <p>{starship.model}</p>
-        <hr />
-      </div>
-    ))}
-  </div>
+    <StarshipsList />
   )
 }
 
-export default Starships
+export default Starships;

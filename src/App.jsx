@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
-import axios from 'axios';
-import './App.css'
 import Header from './components/Header';
-import Home from './pages/Home';
-import Starships from './pages/Starships';
-
+import Starships from './pages/starships';
+import Home from './pages/home';
+import './App.css'
 
 function App() {
-  const [starships, setStarships] = useState([]);
-
-  useEffect(() => {
-    axios.get('https://swapi.dev/api/starships/')
-      .then(res => {
-        console.log(res.data);
-        setStarships(res.data.results);
-      })
-  }, []);
 
   return (
     <BrowserRouter>
@@ -30,15 +18,6 @@ function App() {
 }
 
 /*
-
-
-
-      <BrowserRouter>
-        <Routes>   
-          <Route index element={<Home/>} />
-          <Route path="./pages/Starships" element={<Starships/>} />
-        </Routes>
-      </BrowserRouter>
 
 function App() {
   const [name, setName] = useState(null);

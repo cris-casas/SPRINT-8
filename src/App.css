@@ -33,6 +33,14 @@ header {
   justify-content: center;
 }
 
+nav ul {
+  list-style-type: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
 /*
 
 #root {
