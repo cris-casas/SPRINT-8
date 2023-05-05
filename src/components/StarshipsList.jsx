@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
+import {AppContext} from '../application/provider'
+
 
 const StarshipsList = () => {
 
-    const [starships, setStarships] = useState([]);
-
-    useEffect(() => {
-        axios.get('https://swapi.dev/api/starships/')
-        .then(res => {
-            console.log(res.data);
-            setStarships(res.data.results);
-        })
-    }, []);
-
+    const {starships} = useContext(AppContext);
 
     return (
         <div>
-        {starships.map(starship => (
+        {starships.map((starship) => (
         <div key={starship.name}>
             <p>{starship.name}</p>
             <p>{starship.model}</p>

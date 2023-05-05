@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import MyProvider from './application/provider';
 import Header from './components/Header';
 import Starships from './pages/starships';
 import Home from './pages/home';
@@ -7,18 +8,20 @@ import './App.css'
 function App() {
 
   return (
-    <BrowserRouter>
-      <Header/>
+    <MyProvider>
+      <BrowserRouter>
+        <Header/>
         <Routes>   
           <Route index element={<Home/>} />
           <Route path="/starships" element={<Starships/>} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter> 
+    </MyProvider>
+
   )
 }
 
 /*
-
 function App() {
   const [name, setName] = useState(null);
 
@@ -35,7 +38,6 @@ function App() {
   )
 }
 */
-
 
 /*
 function App() {
