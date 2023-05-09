@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const StartshipsInfo = ({ selectedStarship }) => {
+
+{/*
+    const imageid = selectedStarship.url.slice(32, -1);
+    console.log(imageid);
+    const imageSource = `https://starwars-visualguide.com/assets/img/starships/${imageid}.jpg`;
+*/}
+
+    const [imageSource, setImageSource] = useState("");
+
+    useEffect(() => {
+        const imageId = selectedStarship.url.slice(32, -1);
+        setImageSource(`https://starwars-visualguide.com/assets/img/starships/${imageId}.jpg`);
+    }, [selectedStarship.url]);
+
+    console.log(selectedStarship.url);
+
   return (
     <div>
         <div>
+        <img src={imageSource} alt="No hay imagen"></img>
         <p><b>Model:</b> {selectedStarship.model}</p>
         <p><b>Starship Class:</b> {selectedStarship.starship_class}</p>
         <p><b>Manufacturer:</b> {selectedStarship.manufacturer}</p>
@@ -25,6 +42,6 @@ const StartshipsInfo = ({ selectedStarship }) => {
         </div>
     </div>
 )
-}
+};
 
-export default StartshipsInfo
+export default StartshipsInfo;
