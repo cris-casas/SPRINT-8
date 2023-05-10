@@ -17,11 +17,10 @@ const MyProvider = ({ children }) =>{
         })
     }, []);
 
-
     return (            
-            <AppContext.Provider value={{starships}}>
-                {children}
-            </AppContext.Provider>  
+        <AppContext.Provider value={{starships, setStarships}}>
+            {children}
+        </AppContext.Provider>  
     );
 }
 

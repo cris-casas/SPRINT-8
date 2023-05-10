@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import {AppContext} from '../application/provider';
 import StartshipsInfo from '../components/StartshipsInfo';
-
+import axios from 'axios';
 
 const StarshipsList = () => {
 
-    const {starships, } = useContext(AppContext);
+    const {starships, setStarships} = useContext(AppContext);
     const [selectedStarship, setSelectedStarship] = useState(null);
 
     const handleStarshipClick = (starship) => {
@@ -15,6 +15,15 @@ const StarshipsList = () => {
           setSelectedStarship(starship);
         }
       };
+
+  const nextPage = () => {
+    axios.get('https://swapi.dev/api/starships/?page=2')
+      .then(res => {
+          console.log(res.data);
+          setStarships(res.data.results);
+      })
+  }
+
 
     return (
         <>
@@ -26,8 +35,9 @@ const StarshipsList = () => {
                 <hr />
             </div>
             ))}
+            <button onClick={() => nextPage()}>View More</button>
         </>
     )
 }
 
-export default StarshipsList
+export default StarshipsList;

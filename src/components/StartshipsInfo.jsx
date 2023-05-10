@@ -15,7 +15,7 @@ const StartshipsInfo = ({ selectedStarship }) => {
         setImageSource(`https://starwars-visualguide.com/assets/img/starships/${imageId}.jpg`);
     }, [selectedStarship.url]);
 
-    console.log(selectedStarship.url);
+    //console.log(selectedStarship.url);
 
   return (
     <div>
