@@ -1,8 +1,10 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import MyProvider from './application/provider';
 import Header from './components/Header';
-import Starships from './pages/starships';
 import Home from './pages/home';
+import Starships from './pages/starships';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
 import './App.css'
 
 function App() {
@@ -11,9 +13,11 @@ function App() {
     <MyProvider>
       <BrowserRouter>
         <Header/>
-        <Routes>   
+        <Routes>
           <Route index element={<Home/>} />
           <Route path="/starships" element={<Starships/>} />
+          <Route path="/login" element={<LoginPage/>} />
+          <Route path="/signup" element={<SignUpPage/>} />
         </Routes>
       </BrowserRouter> 
     </MyProvider>

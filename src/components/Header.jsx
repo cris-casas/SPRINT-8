@@ -12,8 +12,10 @@ const Header = () => {
           <img src={logo} alt="Logo de la página"></img>
         </div>
         <nav className="nav-user">
-          <a href="#">Login</a>
-          <a href="#">Signup</a>
+          <ul>
+            <li><Link to='/login'>Login</Link></li>
+            <li><Link to='/signup'>Signup</Link></li>
+          </ul>
         </nav>
       </div>
 
