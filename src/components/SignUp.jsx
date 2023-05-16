@@ -10,10 +10,9 @@ const SignUp = () => {
     const isRegistered = localStorage.getItem('registered') === 'true';
     if (isRegistered) {
       setRegistered(true);
-      console.log(userList);
-      
+      console.log('User List:', userList);
     }
-  }, []);
+  }, [userList]);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -26,36 +25,26 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Aquí puedes realizar la lógica de registro, como enviar una solicitud al servidor o guardar los datos en tu backend
-
-    // Simulando un registro exitoso después de 2 segundos
+    
     setTimeout(() => {
       setRegistered(true);
       localStorage.setItem('registered', 'true');
       localStorage.setItem('username', username);
       localStorage.setItem('password', password);
 
-      // Guardar los datos de registro en el array userList
       const newUser = {
         username: username,
         password: password,
       };
+      
       setUserList((prevUserList) => [...prevUserList, newUser]);
-    }, 2000);
-  };
-
-  const handleLogout = () => {
-    setRegistered(false);
-    localStorage.setItem('registered', 'false');
-    localStorage.removeItem('username');
-    localStorage.removeItem('password');
+    }, 2000); // 2 segundos
   };
 
   if (registered) {
     return (
       <div>
         <div>¡Te has registrado con éxito!</div>
-        <button onClick={handleLogout}>Cerrar sesión</button>
       </div>
     );
   }

@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    // Verificar si hay información de inicio de sesión almacenada en el localStorage al cargar el componente
-    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
-    if (isLoggedIn) {
-      setLoggedIn(true);
-    }
-  }, []);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -23,28 +15,21 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí puedes realizar la lógica de autenticación, como enviar una solicitud al servidor o verificar los datos en tu backend
 
-    // Simulando una autenticación exitosa después de 2 segundos
-    setTimeout(() => {
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+    if (storedUsername === username && storedPassword === password) {
       setLoggedIn(true);
-      localStorage.setItem('loggedIn', 'true');
-    }, 2000);
-    console.log(loggedIn);
-    
-  };
-
-  const handleLogout = () => {
-    setLoggedIn(false);
-    localStorage.setItem('loggedIn', 'false');
-    
+      console.log("inicio de sesión conseguido")
+    } else {
+      alert('Nombre de usuario o contraseña incorrectos');
+    }
   };
 
   if (loggedIn) {
     return (
       <div>
         <div>¡Has iniciado sesión con éxito!</div>
-        <button onClick={handleLogout}>Cerrar sesión</button>
       </div>
     );
   }
