@@ -35,17 +35,17 @@ const StarshipsList = () => {
   }, [numPage]);
 
     return (
-      <>
+      <div className='starships-component'>
         {starships.map((starship) => (
-        <div key={starship.name} onClick={() => handleStarshipClick(starship)}>
-          <p>{starship.name}</p>
+        <div className="starships-container" key={starship.name} onClick={() => handleStarshipClick(starship)}>
+          <h1>{starship.name}</h1>
           <p>{starship.model}</p>
           {selectedStarship && selectedStarship.name === starship.name && <StartshipsInfo selectedStarship={selectedStarship} />}
-          <hr />
+          
         </div>
         ))}
        <button onClick={() => nextPage()}>View More</button>
-      </>
+      </div>
     )
 }
 

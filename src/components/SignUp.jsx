@@ -43,16 +43,17 @@ const SignUp = () => {
 
   if (registered) {
     return (
-      <div>
-        <div>¡Te has registrado con éxito!</div>
+      <div className="registro-container">
+        <h1>Successful SignUp!</h1>
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit}>
+      <h1>SignUp</h1>
       <div>
-        <label htmlFor="username">Usuario:</label>
+        <label htmlFor="username">ENTER YOUR EMAIL ADDRESS</label>
         <input
           type="text"
           id="username"
@@ -61,7 +62,7 @@ const SignUp = () => {
         />
       </div>
       <div>
-        <label htmlFor="password">Contraseña:</label>
+        <label htmlFor="password">ENTER YOUR PASSWORD</label>
         <input
           type="password"
           id="password"
@@ -69,7 +70,7 @@ const SignUp = () => {
           onChange={handlePasswordChange}
         />
       </div>
-      <button type="submit">Registrarse</button>
+      <button type="submit">SignUp</button>
     </form>
   );
 };

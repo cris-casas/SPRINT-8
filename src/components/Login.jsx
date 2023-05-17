@@ -28,8 +28,8 @@ const Login = () => {
 
   if (loggedIn) {
     return (
-      <div>
-        <div>¡Has iniciado sesión con éxito!</div>
+      <div className="registro-container">
+        <h1>Successful Login!</h1>
       </div>
     );
   }
@@ -37,7 +37,8 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="username">Usuario:</label>
+        <h1>Login</h1>
+        <label htmlFor="username">ENTER YOUR EMAIL ADDRESS</label>
         <input
           type="text"
           id="username"
@@ -46,7 +47,7 @@ const Login = () => {
         />
       </div>
       <div>
-        <label htmlFor="password">Contraseña:</label>
+        <label htmlFor="password">ENTER YOUR PASSWORD</label>
         <input
           type="password"
           id="password"
@@ -54,7 +55,7 @@ const Login = () => {
           onChange={handlePasswordChange}
         />
       </div>
-      <button type="submit">Iniciar sesión</button>
+      <button type="submit">Login</button>
     </form>
   );
 };
