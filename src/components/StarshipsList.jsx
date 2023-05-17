@@ -30,7 +30,6 @@ const StarshipsList = () => {
       .then(res => {
           console.log(res.data);
           setStarships([...starships, ...res.data.results]);
-          window.scrollTo(0, document.body.scrollHeight);
       })
   }, [numPage]);
 
